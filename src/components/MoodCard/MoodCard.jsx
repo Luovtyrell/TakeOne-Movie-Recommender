@@ -1,26 +1,17 @@
-import { useState } from "react";
 import useMood from "../../hooks/useMood";
-import { moods } from "../../data/moodData";
-import MoodButton from "../Buttons/MoodButton/MoodButton";
+import ActionButton from "../ActionButton/ActionButton";
 import "./MoodCard.css";
-import SubmitButton from "../Buttons/SubmitButton/SubmitButton";
-import BackButton from "../Buttons/BackButton/BackButton";
 
 function MoodCard() {
-  const [selectedMood, setSelectedMood] = useState("");
-  const { submitMood } = useMood();
+  const {
+    selectedMoodData,
+    availableMoods,
+    selectedMood,
+    handleMoodChange,
+    resetMood,
+    submitMood,
+  } = useMood();
 
-  const handleMoodChange = (moodType) => {
-    setSelectedMood(moodType);
-  };
-
-  const handleBack = () => {
-    setSelectedMood("");
-  };
-
-  const selectedMoodData =
-    moods.find((mood) => mood.type === selectedMood) ||
-    moods.find((mood) => mood.type === "Default");
   const { background, image, title, gradient } = selectedMoodData;
 
   return (
@@ -37,23 +28,26 @@ function MoodCard() {
             {title}
           </h2>
           <div className="card-actions flex flex-wrap justify-center mt-4">
-            {moods
-              .filter((mood) => mood.type !== "Default")
-              .map((mood) => (
-                <MoodButton
-                  key={mood.type}
-                  mood={mood.type}
-                  onClick={handleMoodChange}
-                />
-              ))}
+            {availableMoods.map((mood) => (
+              <ActionButton
+                key={mood.type}
+                onClick={() => handleMoodChange(mood.type)}
+                size="btn-sm">
+                {mood.type}
+              </ActionButton>
+            ))}
           </div>
           {selectedMood && (
             <>
-              <SubmitButton
-                onClick={() => submitMood(selectedMood)}
+              <ActionButton
+                onClick={submitMood}
                 disabled={!selectedMood}
-              />
-              <BackButton onClick={handleBack} />
+                className="wide w-full mt-4">
+                Submit
+              </ActionButton>
+              <ActionButton onClick={resetMood} size="btn-md">
+                ← Back
+              </ActionButton>
             </>
           )}
         </div>

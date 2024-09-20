@@ -1,20 +1,55 @@
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import MoodContext from "./MoodContext";
 import PropTypes from "prop-types";
+import moods from "../data/moodData";
 
 const MoodProvider = ({ children }) => {
-  const [mood, setMood] = useState("");
+  const [selectedMood, setSelectedMood] = useState("");
 
-  const submitMood = (selectedMood) => {
-    setMood(selectedMood);
+  const submitMood = useCallback(() => {
     console.log(`Mood submitted: ${selectedMood}`);
-  };
+  }, [selectedMood]);
 
-  return (
-    <MoodContext.Provider value={{ mood, submitMood }}>
-      {children}
-    </MoodContext.Provider>
+  const handleMoodChange = useCallback((mood) => {
+    setSelectedMood(mood);
+  }, []);
+
+  const resetMood = useCallback(() => {
+    setSelectedMood("");
+  }, []);
+
+  const selectedMoodData = useMemo(
+    () =>
+      moods.find((mood) => mood.type === selectedMood) ||
+      moods.find((mood) => mood.type === "Default"),
+    [selectedMood]
   );
+
+  const availableMoods = useMemo(
+    () => moods.filter((mood) => mood.type !== "Default"),
+    []
+  );
+
+  const value = useMemo(
+    () => ({
+      selectedMood,
+      selectedMoodData,
+      availableMoods,
+      handleMoodChange,
+      resetMood,
+      submitMood,
+    }),
+    [
+      selectedMood,
+      selectedMoodData,
+      availableMoods,
+      handleMoodChange,
+      resetMood,
+      submitMood,
+    ]
+  );
+
+  return <MoodContext.Provider value={value}>{children}</MoodContext.Provider>;
 };
 
 MoodProvider.propTypes = {
