@@ -1,5 +1,7 @@
+// MoodCard.js
+import { useNavigate } from "react-router-dom";
 import useMood from "../../hooks/useMood";
-import ActionButton from "../ActionButton/ActionButton";
+import BackButton from "../BackButton/BackButton";
 import "./MoodCard.css";
 
 function MoodCard() {
@@ -8,11 +10,16 @@ function MoodCard() {
     availableMoods,
     selectedMood,
     handleMoodChange,
-    resetMood,
     submitMood,
   } = useMood();
 
+  const navigate = useNavigate();
   const { background, image, title, gradient } = selectedMoodData;
+
+  const handleSubmit = () => {
+    submitMood();
+    navigate("/filters"); // Navegar a la página de filtros
+  };
 
   return (
     <div
@@ -29,25 +36,23 @@ function MoodCard() {
           </h2>
           <div className="card-actions flex flex-wrap justify-center mt-4">
             {availableMoods.map((mood) => (
-              <ActionButton
+              <button
                 key={mood.type}
                 onClick={() => handleMoodChange(mood.type)}
-                size="btn-sm">
+                className="btn btn-sm">
                 {mood.type}
-              </ActionButton>
+              </button>
             ))}
           </div>
           {selectedMood && (
             <>
-              <ActionButton
-                onClick={submitMood}
+              <button
+                onClick={handleSubmit}
                 disabled={!selectedMood}
-                className="wide w-full mt-4">
+                className="btn btn-full mt-4 btn-neutral">
                 Submit
-              </ActionButton>
-              <ActionButton onClick={resetMood} size="btn-md">
-                ← Back
-              </ActionButton>
+              </button>
+              <BackButton />
             </>
           )}
         </div>

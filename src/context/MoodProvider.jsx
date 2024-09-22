@@ -1,13 +1,16 @@
 import { useState, useCallback, useMemo } from "react";
 import MoodContext from "./MoodContext";
 import PropTypes from "prop-types";
-import moods from "../data/moodData";
+import { moods } from "../data/moodData";
 
 const MoodProvider = ({ children }) => {
-  const [selectedMood, setSelectedMood] = useState("");
+  const [selectedMood, setSelectedMood] = useState(() => {
+    return localStorage.getItem("selectedMood") || "";
+  });
 
   const submitMood = useCallback(() => {
     console.log(`Mood submitted: ${selectedMood}`);
+    localStorage.setItem("selectedMood", selectedMood);
   }, [selectedMood]);
 
   const handleMoodChange = useCallback((mood) => {
@@ -16,6 +19,7 @@ const MoodProvider = ({ children }) => {
 
   const resetMood = useCallback(() => {
     setSelectedMood("");
+    localStorage.removeItem("selectedMood");
   }, []);
 
   const selectedMoodData = useMemo(
