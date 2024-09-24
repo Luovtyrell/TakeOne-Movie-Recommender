@@ -1,4 +1,3 @@
-// MoodCard.js
 import { useNavigate } from "react-router-dom";
 import useMood from "../../hooks/useMood";
 import BackButton from "../BackButton/BackButton";
@@ -6,7 +5,7 @@ import "./MoodCard.css";
 
 function MoodCard() {
   const {
-    selectedMoodData,
+    selectedMoodData: { background, image, title, gradient },
     availableMoods,
     selectedMood,
     handleMoodChange,
@@ -14,11 +13,9 @@ function MoodCard() {
   } = useMood();
 
   const navigate = useNavigate();
-  const { background, image, title, gradient } = selectedMoodData;
-
   const handleSubmit = () => {
     submitMood();
-    navigate("/filters"); // Navegar a la página de filtros
+    navigate("/results");
   };
 
   return (

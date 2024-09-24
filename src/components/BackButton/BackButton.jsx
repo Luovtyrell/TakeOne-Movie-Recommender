@@ -6,8 +6,8 @@ function BackButton() {
   const { resetMood } = useMood();
 
   const handleBack = () => {
-    resetMood(); 
-    navigate(-1); 
+    resetMood();
+    navigate(-1);
   };
 
   return (

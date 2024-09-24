@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import FiltersPage from "../pages/FiltersPage/FiltersPage";
+import ResultsPage from "../pages/ResultsPage/ResultsPage";
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/filters" element={<FiltersPage />} />
+      <Route path="/results" element={<ResultsPage />} />
     </Routes>
   );
 }
