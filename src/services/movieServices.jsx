@@ -8,7 +8,7 @@ const fetchMoviesFromApi = async (selectedMoodData) => {
       Math.floor(Math.random() * selectedMoodData.genres.length)
     ];
 
-  const randomPage = Math.floor(Math.random() * 500) + 1;
+  const randomPage = Math.floor(Math.random() * 100) + 1;
 
   try {
     const response = await axios.get(
@@ -18,6 +18,8 @@ const fetchMoviesFromApi = async (selectedMoodData) => {
           with_genres: randomGenreId,
           page: randomPage,
           api_key: API_KEY,
+          "vote_average.gte": 4,
+          "vote_count.gte": 10,
         },
       }
     );

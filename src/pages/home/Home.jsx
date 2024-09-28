@@ -1,9 +1,11 @@
 import MoodCard from "../../components/MoodCard/MoodCard";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <MoodCard />
     </>
   );
 }
+
+export default Home;

@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "her-red": "#d44e42",
+        "her-red": "#ff0f0f",
       },
     },
   },

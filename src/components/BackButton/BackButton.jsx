@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useMood from "../../hooks/useMood";
+import { ChevronLeft } from "lucide-react";
 
 function BackButton() {
   const navigate = useNavigate();
@@ -7,13 +8,16 @@ function BackButton() {
 
   const handleBack = () => {
     resetMood();
-    navigate(-1);
+    navigate("/");
   };
 
   return (
-    <button onClick={handleBack} className="btn btn-square">
-      ← Back
-    </button>
+    <div className="flex mt-1">
+      <button onClick={handleBack} className="btn flex items-center">
+        <ChevronLeft className="text-her-red" />
+        Back
+      </button>
+    </div>
   );
 }
 
