@@ -2,21 +2,19 @@ import { useEffect, useState } from "react";
 import fetchMoviesFromApi from "../services/movieServices";
 
 const useMovies = (selectedMoodData) => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({ movies: [], loading: true });
 
   const fetchMovies = async () => {
-    setLoading(true);
+    setState((prevState) => ({ ...prevState, loading: true }));
     const fetchedMovies = await fetchMoviesFromApi(selectedMoodData);
-    setMovies(fetchedMovies);
-    setLoading(false);
+    setState({ movies: fetchedMovies, loading: false });
   };
 
   useEffect(() => {
     fetchMovies();
   }, []);
 
-  return { movies, loading, fetchMovies };
+  return { ...state, fetchMovies };
 };
 
-export default useMovies;
+export default useMovies

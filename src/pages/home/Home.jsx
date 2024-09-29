@@ -1,4 +1,4 @@
-import MoodCard from "../../components/MoodCard/MoodCard";
+import MoodCard from "../../components/MoodCard/MoodCard"
 
 function Home() {
   return (

@@ -1,4 +1,4 @@
-import MovieRecommendations from "../../components/MovieRecommendations/MovieRecommendations";
+import MovieRecommendations from "../../components/MovieResults/MovieRecommendations";
 
 function ResultsPage() {
   return (

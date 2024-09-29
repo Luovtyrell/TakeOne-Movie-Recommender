@@ -3,6 +3,18 @@ import axios from "axios";
 const fetchMoviesFromApi = async (selectedMoodData) => {
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
+  const containsForbiddenWords = (description) => {
+    const forbiddenWords = ["sex", "nude", "prostitutes", "violence", "porn"];
+    return forbiddenWords.some((word) =>
+      description.toLowerCase().includes(word)
+    );
+  };
+
+  const getRandomItems = (array, count) => {
+    const shuffled = [...array].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
   const randomGenreId =
     selectedMoodData.genres[
       Math.floor(Math.random() * selectedMoodData.genres.length)
@@ -24,7 +36,10 @@ const fetchMoviesFromApi = async (selectedMoodData) => {
       }
     );
 
-    return response.data.results.slice(0, 3);
+    const filteredResults = response.data.results.filter(
+      (movie) => !containsForbiddenWords(movie.overview)
+    );
+    return getRandomItems(filteredResults, 3);
   } catch (error) {
     console.error("Error fetching movies from API:", error);
     return [];

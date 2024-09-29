@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import useMood from "../../hooks/useMood";
-import BackButton from "../BackButton/BackButton";
+import BackButton from "../Buttons/BackButton";
+import MoodSubmitButton from "../Buttons/MoodSubmitButton";
 import "./MoodCard.css";
 
 function MoodCard() {
@@ -9,14 +9,7 @@ function MoodCard() {
     availableMoods,
     selectedMood,
     handleMoodChange,
-    submitMood,
   } = useMood();
-
-  const navigate = useNavigate();
-  const handleSubmit = () => {
-    submitMood();
-    navigate("/results");
-  };
 
   return (
     <div
@@ -43,12 +36,7 @@ function MoodCard() {
           </div>
           {selectedMood && (
             <>
-              <button
-                onClick={handleSubmit}
-                disabled={!selectedMood}
-                className="btn btn-full mt-4 btn-neutral">
-                Submit
-              </button>
+              <MoodSubmitButton />
               <BackButton />
             </>
           )}
