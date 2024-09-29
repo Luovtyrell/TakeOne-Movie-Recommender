@@ -8,7 +8,7 @@ function BackButton() {
 
   const handleBack = () => {
     resetMood();
-    navigate("/");
+    navigate(-1);
   };
 
   return (
