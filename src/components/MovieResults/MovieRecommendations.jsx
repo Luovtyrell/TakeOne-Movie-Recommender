@@ -28,8 +28,8 @@ function MovieRecommendations() {
           )}
           <button
             onClick={fetchMovies}
-            className="btn mt-4 flex items-center btn-neutral hover:bg-her-red hover:text-black">
-            Try again!
+            className="btn mt-4 w-full items-center btn-neutral hover:bg-her-red hover:text-black">
+            Try again
           </button>
           <div className="mb-4 mt-4">
             <BackButton />

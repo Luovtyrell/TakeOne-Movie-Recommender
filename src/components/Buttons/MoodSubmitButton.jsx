@@ -14,7 +14,7 @@ function MoodSubmitButton() {
     <button
       onClick={handleSubmit}
       disabled={!selectedMood}
-      className={`btn btn-neutral rounded-lg ${
+      className={`btn btn-neutral rounded-lg w-full my-4 ${
         !selectedMood
           ? "opacity-50 cursor-not-allowed"
           : "hover:bg-her-red hover:text-black"

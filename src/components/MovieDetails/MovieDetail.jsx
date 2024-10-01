@@ -36,7 +36,7 @@ function MovieDetail() {
       <div className="container mx-auto px-4 -mt-24 relative z-10">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold mb-4 text-white">
+            <h1 className="text-4xl font-bold mb-4 underline decoration-her-red text-white">
               {movie.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-white">

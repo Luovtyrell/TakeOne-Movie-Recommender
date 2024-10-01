@@ -13,7 +13,7 @@ function MovieCardHover({ movie }) {
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-25"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100 p-4 space-y-2">
-            <h1 className="text-center text-4xl text-white font-bold">
+            <h1 className="text-center text-4xl text-her-red font-bold">
               {movie.title}
             </h1>
             <MovieBasicInfo
