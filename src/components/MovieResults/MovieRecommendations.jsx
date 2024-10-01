@@ -1,6 +1,6 @@
 import useMood from "../../hooks/useMood";
 import useMovies from "../../hooks/useMovies";
-import MovieCard from "../MovieResults/MovieCard";
+import MovieCardHover from "./MovieCardHover";
 import BackButton from "../Buttons/BackButton";
 
 function MovieRecommendations() {
@@ -20,7 +20,7 @@ function MovieRecommendations() {
           {movies.length ? (
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCardHover key={movie.id} movie={movie} />
               ))}
             </ul>
           ) : (

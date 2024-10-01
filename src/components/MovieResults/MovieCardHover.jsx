@@ -1,8 +1,8 @@
-import { Star, Calendar, ThumbsUp } from "lucide-react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import MovieBasicInfo from "../MovieDetails/MovieBasicInfo";
 
-function MovieCard({ movie }) {
+function MovieCardHover({ movie }) {
   return (
     <li className="group">
       <Link to={`/movie/${movie.id}`} className="block">
@@ -13,24 +13,15 @@ function MovieCard({ movie }) {
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-25"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100 p-4 space-y-2">
-            <h1 className="text-center text-white text-3xl font-bold">
+            <h1 className="text-center text-4xl text-white font-bold">
               {movie.title}
             </h1>
-            <div className="flex space-x-4">
-              <h2 className="text-white flex items-center text-lg">
-                <Calendar size={15} className="mr-1 text-her-red" />
-                {new Date(movie.release_date).getFullYear()}
-              </h2>
-              <h2 className="text-white flex items-center text-lg">
-                <Star size={15} className="mr-1 text-yellow-400" />
-                {movie.vote_average.toFixed(2)}
-              </h2>
-              <h2 className="text-white flex items-center text-lg">
-                <ThumbsUp size={15} className="mr-1 text-sky-400" />
-                {movie.vote_count}
-              </h2>
-            </div>
-            <p className="text-justify text-xs">{movie.overview}</p>
+            <MovieBasicInfo
+              movie={movie}
+              showOverview={false}
+              showRuntime={false}
+              showVoteCount={true}
+            />
           </div>
         </div>
       </Link>
@@ -38,7 +29,7 @@ function MovieCard({ movie }) {
   );
 }
 
-MovieCard.propTypes = {
+MovieCardHover.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     poster_path: PropTypes.string,
@@ -50,4 +41,4 @@ MovieCard.propTypes = {
   }).isRequired,
 };
 
-export default MovieCard;
+export default MovieCardHover;

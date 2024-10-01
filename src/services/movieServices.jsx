@@ -7,9 +7,12 @@ const containsForbiddenWords = (description) => {
     "sex",
     "nude",
     "prostitutes",
-    "violence",
     "porn",
     "breasts",
+    "horny",
+    "rape",
+    "nunnery",
+    "Chin-chin",
   ];
   return forbiddenWords.some((word) =>
     description.toLowerCase().includes(word)
