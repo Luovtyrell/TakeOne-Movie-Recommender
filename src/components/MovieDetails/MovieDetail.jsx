@@ -23,6 +23,10 @@ function MovieDetail() {
     );
   }
 
+  const director = movie.credits.crew.find(
+    (member) => member.job === "Director"
+  );
+
   return (
     <div className="min-h-screen">
       <div className="relative h-[50vh]">
@@ -47,8 +51,7 @@ function MovieDetail() {
                 showVoteCount={false}
               />
             </div>
-            <h2 className="text-3xl font-semibold mb-2 text-white">Genres</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-6">
               {movie.genres.map((genre) => (
                 <span
                   key={genre.id}
@@ -57,9 +60,44 @@ function MovieDetail() {
                 </span>
               ))}
             </div>
+            <h2 className="text-3xl font-semibold mb-2 text-white">
+              Directed by
+            </h2>
+            <div className="flex items-center mb-6">
+              {director?.profile_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${director.profile_path}`}
+                  alt={director.name}
+                  className="w-11 h-15 mr-3 rounded-full"
+                />
+              )}
+              <p className="text-sm font-bold bg-her-red text-black p-1">
+                {director?.name || "Unknown"}
+              </p>
+            </div>
+            <h2 className="text-3xl font-semibold mb-2 text-white">Cast</h2>
+            <div className="carousel rounded-box">
+              {movie.credits.cast.slice(0, 10).map((actor) => (
+                <div key={actor.id} className="carousel-item relative">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+                    alt={actor.name}
+                    className="h-60 w-auto object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="text-sm text-center font-bold bg-her-red text-black h-6 flex items-center justify-center">
+                      {actor.name}
+                    </p>
+                    <p className="text-white font-bold text-xs bg-black text-center h-6 flex items-center justify-center">
+                      {actor.character}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 mb-4">
           <BackButton />
         </div>
       </div>

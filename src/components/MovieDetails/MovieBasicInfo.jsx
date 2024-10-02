@@ -40,7 +40,7 @@ function MovieBasicInfo({
         )}
       </div>
       {showOverview && movie.overview && (
-        <p className="text-lg mb-6 text-neutral-200">{movie.overview}</p>
+        <p className="text-lg mb-3 text-neutral-200">{movie.overview}</p>
       )}
     </div>
   );

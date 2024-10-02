@@ -13,6 +13,8 @@ const containsForbiddenWords = (description) => {
     "rape",
     "nunnery",
     "Chin-chin",
+    "SS",
+    "Dodo",
   ];
   return forbiddenWords.some((word) =>
     description.toLowerCase().includes(word)
@@ -63,6 +65,7 @@ export const fetchMovieDetails = async (movieId) => {
       {
         params: {
           api_key: API_KEY,
+          append_to_response: "credits"
         },
       }
     );
