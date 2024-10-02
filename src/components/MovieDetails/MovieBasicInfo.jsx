@@ -1,5 +1,6 @@
 import { Star, Calendar, Clock, ThumbsUp } from "lucide-react";
 import PropTypes from "prop-types";
+import Error from "../InfoUI/Error";
 
 function MovieBasicInfo({
   movie,
@@ -8,7 +9,11 @@ function MovieBasicInfo({
   showVoteCount = true,
 }) {
   if (!movie) {
-    return null;
+    return (
+      <>
+        <Error message="Movie not found" />
+      </>
+    );
   }
 
   return (

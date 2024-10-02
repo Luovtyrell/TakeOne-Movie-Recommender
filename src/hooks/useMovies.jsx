@@ -17,4 +17,4 @@ const useMovies = (selectedMoodData) => {
   return { ...state, fetchMovies };
 };
 
-export default useMovies
+export default useMovies;

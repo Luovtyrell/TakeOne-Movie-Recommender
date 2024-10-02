@@ -2,30 +2,28 @@ import { useParams } from "react-router-dom";
 import useMovieDetail from "../../hooks/useMovieDetail";
 import BackButton from "../../components/Buttons/BackButton";
 import MovieBasicInfo from "./MovieBasicInfo";
+import Loading from "../InfoUI/Loading";
+import Error from "../InfoUI/Error";
 
 function MovieDetail() {
   const { id } = useParams();
-  const { movie, loading } = useMovieDetail(id);
+  const { movie, loading, director, genreElements } = useMovieDetail(id);
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-2xl">Loading...</p>
-      </div>
+      <>
+        <Loading />
+      </>
     );
   }
 
   if (!movie) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-2xl">Movie not found</p>
-      </div>
+      <>
+        <Error message="Movie not found" />
+      </>
     );
   }
-
-  const director = movie.credits.crew.find(
-    (member) => member.job === "Director"
-  );
 
   return (
     <div className="min-h-screen">
@@ -51,15 +49,7 @@ function MovieDetail() {
                 showVoteCount={false}
               />
             </div>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {movie.genres.map((genre) => (
-                <span
-                  key={genre.id}
-                  className="bg-her-red text-black px-3 py-1 rounded-full text-sm font-semibold">
-                  {genre.name}
-                </span>
-              ))}
-            </div>
+            <div className="flex flex-wrap gap-2 mb-6">{genreElements}</div>
             <h2 className="text-3xl font-semibold mb-2 text-white">
               Directed by
             </h2>
@@ -84,7 +74,7 @@ function MovieDetail() {
                     alt={actor.name}
                     className="h-60 w-auto object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="absolute bottom-0 left-0 right-0 p-2">
                     <p className="text-sm text-center font-bold bg-her-red text-black h-6 flex items-center justify-center">
                       {actor.name}
                     </p>

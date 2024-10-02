@@ -65,7 +65,7 @@ export const fetchMovieDetails = async (movieId) => {
       {
         params: {
           api_key: API_KEY,
-          append_to_response: "credits"
+          append_to_response: "credits",
         },
       }
     );

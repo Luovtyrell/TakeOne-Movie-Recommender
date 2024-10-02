@@ -2,6 +2,7 @@ import useMood from "../../hooks/useMood";
 import useMovies from "../../hooks/useMovies";
 import MovieCardHover from "./MovieCardHover";
 import BackButton from "../Buttons/BackButton";
+import Loading from "../InfoUI/Loading";
 
 function MovieRecommendations() {
   const { selectedMoodData } = useMood();
@@ -14,7 +15,7 @@ function MovieRecommendations() {
         {selectedMoodData.calm}
       </h2>
       {loading ? (
-        <p>Loading movies...</p>
+        <Loading />
       ) : (
         <div>
           {movies.length ? (
