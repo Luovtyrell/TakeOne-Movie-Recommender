@@ -15,8 +15,13 @@ export const moods = [
     title: "Happy",
     gradient: "bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500",
     calm: "Keep the good vibes going!",
-    genres: [35, 10751, 10402, 10749, 878], // Comedy, Family, Music, Romance, Sci-Fi
+    genres: [
+      10751, // Family
+      35, // Comedy
+      14, // Fantasy
+    ],
   },
+
   {
     type: "Sad 😢",
     image: "/assets/img/movieMoods/sad.jpg",
@@ -24,7 +29,11 @@ export const moods = [
     title: "Sad",
     gradient: "bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500",
     calm: "Let's cheer you up",
-    genres: [18, 10749, 10402, 878, 9648], // Drama, Romance, Music, Sci-Fi, Mystery
+    genres: [
+      10749, // Romance
+      35, // Comedy
+      18, // Drama
+    ],
   },
   {
     type: "Angry 😡",
@@ -33,7 +42,11 @@ export const moods = [
     title: "Angry",
     gradient: "bg-gradient-to-r from-red-400 via-red-500 to-red-600",
     calm: "Take a deep breath and relax",
-    genres: [28, 80, 53, 18, 9648], // Action, Crime, Thriller, Drama, Mystery
+    genres: [
+      28, // Action
+      878, // Science Fiction
+      53, // Thriller
+    ],
   },
   {
     type: "Excited 🤩",
@@ -42,7 +55,11 @@ export const moods = [
     title: "Excited",
     gradient: "bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600",
     calm: "Embrace the thrill!",
-    genres: [18, 9648, 10402, 878, 53], // Drama, Mystery, Music, Sci-Fi, Thriller
+    genres: [
+      28, // Action
+      80, // Crime
+      53, // Thriller
+    ],
   },
   {
     type: "Anxious 😫",
@@ -51,8 +68,12 @@ export const moods = [
     title: "Anxious",
     gradient: "bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600",
     calm: "Breathe deeply, everything will be okay.",
-    genres: [28, 12, 14, 35, 878], // Action, Adventure, Fantasy, Comedy, Sci-Fi
-  },  
+    genres: [
+      35, // Comedy
+      16, // Animation
+      14, // Fantasy
+    ],
+  },
   {
     type: "Relaxed 😌",
     image: "/assets/img/movieMoods/relax.jpg",
@@ -60,8 +81,12 @@ export const moods = [
     title: "Relaxed",
     gradient: "bg-gradient-to-r from-orange-400 via-orange-500 to-brown-600",
     calm: "Enjoy the moment and unwind.",
-    genres: [10751, 35, 10402, 12, 28], // Family, Comedy, Music, Adventure, Action
-  },  
+    genres: [
+      10751, // Family
+      10402, // Music
+      10749, // Romance
+    ],
+  },
   {
     type: "Nostalgic 😊",
     image: "/assets/img/movieMoods/nostalgic.jpg",
@@ -69,8 +94,13 @@ export const moods = [
     title: "Nostalgic",
     gradient: "bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500",
     calm: "Let's reminisce about the good old days.",
-    genres: [36, 18, 10749, 10402, 878], // History, Drama, Romance, Music, Sci-Fi
-  },  
+    genres: [
+      18, // Drama
+      36, // History
+      10749, // Romance
+      37, // Western
+    ],
+  },
   {
     type: "Confident 😎",
     image: "/assets/img/movieMoods/conf.jpg",
@@ -78,7 +108,11 @@ export const moods = [
     title: "Confident",
     gradient: "bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600",
     calm: "You got this!",
-    genres: [28, 12, 53, 16, 27, 53, 12], // Acción, Aventura, Thriller, Fantasía, Animación, thriller, terror
+    genres: [
+      28, // Action
+      80, // Crime
+      53, // Thriller
+    ],
   },
   {
     type: "Overwhelmed 🤯",
@@ -87,7 +121,11 @@ export const moods = [
     title: "Overwhelmed",
     gradient: "bg-gradient-to-r from-red-500 via-red-600 to-red-700",
     calm: "Take it one step at a time.",
-    genres: [14, 12, 28, 878, 35], // Fantasy, Adventure, Action, Sci-Fi, Comedy
+    genres: [
+      35, // Comedy
+      14, // Fantasy
+      10749, // Romance
+    ],
   },
   {
     type: "Curious 🧐",
@@ -96,7 +134,11 @@ export const moods = [
     title: "Curious",
     gradient: "bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700",
     calm: "Explore and discover!",
-    genres: [9648, 878, 12, 36, 28, 35], // Mystery, Sci-Fi, Adventure, History, Action, Comedy
+    genres: [
+      9648, // Mystery
+      878, // Science Fiction
+      53, // Thriller
+    ],
   },
   {
     type: "Stressed 😰",
@@ -105,8 +147,25 @@ export const moods = [
     title: "Stressed",
     gradient: "bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800",
     calm: "Take a moment to breathe and relax.",
-    genres: [28, 35, 14, 16, 12, 10402], // Acción, Comedia, Fantasía, Animación, Aventura, music
+    genres: [
+      35, // Comedy
+      10749, // Romance
+      10402, // Music
+    ],
   },
+  {
+    type: "Disappointed 😞",
+    image: "/assets/img/movieMoods/disappointed.jpg",
+    background: "bg-purple-400",
+    title: "Disappointed",
+    gradient: "bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700",
+    calm: "Let's find something to lift your spirits.",
+    genres: [
+      35, // Comedy
+      10749, // Romance
+      18, // Drama
+    ],
+  },  
   {
     type: "Bored 🥱",
     image: "/assets/img/movieMoods/bored.jpg",
@@ -114,8 +173,12 @@ export const moods = [
     title: "Bored",
     gradient: "bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600",
     calm: "Let's find something fun to do!",
-    genres: [12, 35, 28, 16, 14], // Aventura, Comedia, Acción, Fantasía, Animación
-  },  
+    genres: [
+      14, // Fantasy
+      28, // Action
+      9648, // Mystery
+    ],
+  },
   {
     type: "I don't know 🫥",
     image: "/assets/img/movieMoods/idk.avif",
@@ -123,6 +186,23 @@ export const moods = [
     title: "I don't know",
     gradient: "bg-gradient-to-r from-slate-200 via-slate-300 to-slate-400",
     calm: "It's okay to feel unsure sometimes.",
-    genres: [28, 12, 16, 35, 80, 18, 27, 14, 9648, 878, 10751, 53, 10749],
+    genres: [
+      18, // Drama
+      12, // Adventure
+      16, // Animation
+      35, // Comedy
+      80, // Crime
+      10751, // Family
+      14, // Fantasy
+      36, // History
+      27, // Horror
+      10402, // Music
+      9648, // Mystery
+      10749, // Romance
+      878, // Science Fiction
+      53, // Thriller
+      10752, // War
+      37, // Western
+    ],
   },
 ];

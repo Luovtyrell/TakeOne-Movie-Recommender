@@ -32,7 +32,7 @@ const useMovieDetail = (movieId) => {
           const genreElements = genres.map((genre) => (
             <span
               key={genre.id}
-              className="bg-her-red text-black px-3 py-1 rounded-full text-sm font-semibold">
+              className="bg-her-red text-white px-3 py-1 rounded-full text-sm font-semibold">
               {genre.name}
             </span>
           ));

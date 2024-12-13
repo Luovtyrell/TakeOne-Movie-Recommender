@@ -7,6 +7,7 @@ const containsForbiddenWords = (description) => {
     "sex",
     "nude",
     "prostitutes",
+    "prostitute",
     "porn",
     "breasts",
     "horny",
@@ -15,6 +16,7 @@ const containsForbiddenWords = (description) => {
     "Chin-chin",
     "SS",
     "Dodo",
+    "stepdaughter",
   ];
   return forbiddenWords.some((word) =>
     description.toLowerCase().includes(word)
@@ -32,7 +34,7 @@ export const fetchMoviesFromApi = async (selectedMoodData) => {
       Math.floor(Math.random() * selectedMoodData.genres.length)
     ];
 
-  const randomPage = Math.floor(Math.random() * 100) + 1;
+  const randomPage = Math.floor(Math.random() * 70) + 1;
 
   try {
     const response = await axios.get(

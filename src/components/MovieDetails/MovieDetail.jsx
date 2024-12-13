@@ -61,7 +61,7 @@ function MovieDetail() {
                   className="w-11 h-15 mr-3 rounded-full"
                 />
               )}
-              <p className="text-sm font-bold bg-her-red text-black p-1">
+              <p className="text-sm font-bold bg-her-red text-white p-1">
                 {director?.name || "Unknown"}
               </p>
             </div>
@@ -75,10 +75,10 @@ function MovieDetail() {
                     className="h-60 w-auto object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-2">
-                    <p className="text-sm text-center font-bold bg-her-red text-black h-6 flex items-center justify-center">
+                    <p className="text-xs text-center font-bold bg-her-red text-white h-6 flex items-center justify-center">
                       {actor.name}
                     </p>
-                    <p className="text-white font-bold text-xs bg-black text-center h-6 flex items-center justify-center">
+                    <p className="font-bold text-xs bg-black text-white h-6 flex items-center justify-center">
                       {actor.character}
                     </p>
                   </div>
