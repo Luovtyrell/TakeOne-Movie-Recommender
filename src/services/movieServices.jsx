@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const API_KEY = '1dd0488421dbe8bfd0fe5aabf1018df3';
 
 const containsForbiddenWords = (description) => {
   const forbiddenWords = [
